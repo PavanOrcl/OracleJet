@@ -1,11 +1,13 @@
 # OracleJet
 Oracle Jet Workspace Images
 
+Workspace setup : 
+
 ![image](https://user-images.githubusercontent.com/73457097/97136189-774d4880-1778-11eb-9f54-5faedbe879fd.png)
 
+Requirement : component binding - displaying the chart based on selection from dropdown ( char/bar/funnel)
 
 ![image](https://user-images.githubusercontent.com/73457097/97135867-9dbeb400-1777-11eb-80a8-134db30b1d21.png)
-
 
 
 ![image](https://user-images.githubusercontent.com/73457097/97135895-b7f89200-1777-11eb-8c8c-19991dc2833c.png)
