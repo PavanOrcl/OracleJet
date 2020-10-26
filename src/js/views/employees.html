@@ -1,0 +1,89 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<h1>Employees</h1>
+<div class="oj-flex-item oj-panel demo-mypanel" >
+    <h1>picto-chart Component</h1>
+    <oj-picto-chart id='pictochart1' 
+                    data="[[dataProvider]]"
+                    animation-on-display="auto"
+                    column-count="5">
+        <template slot="itemTemplate" data-oj-as="item">
+            <oj-picto-chart-item name="[[item.data.name]]" shape="human" count="[[item.data.count]]" color="[[getColor(item.index)]]">
+            </oj-picto-chart-item>
+        </template>
+    </oj-picto-chart>
+    <div >
+        <b>7 out of 10 college Employees</b>
+    </div>
+    <div> 
+        <b>have sleep problems.</b>
+    </div>
+</div>
+<br/> <br/>
+<div id="dialogWrapper" class="oj-flex-item oj-panel demo-mypanel">
+    <oj-dialog style="display:none;width:250px;height:auto" id="outerDialog" dialog-title="Outer Dialog">
+        <div slot="body">
+            You can launch another dialog from this dialog.
+            <oj-dialog style="display:none;width:200px;height:auto" id="innerDialog" dialog-title="Dialog Inner" modality="modal">
+                <div slot="body">
+                    Inner Dialog
+                </div>
+                <div slot="footer">
+                    <oj-button id="okButton2"  on-oj-action="[[handleOKClose2]]"> OK </oj-button>
+                </div>
+            </oj-dialog>
+        </div>
+        <div slot="footer" >
+            <oj-button id="buttonOpenerNested" on-oj-action="[[handleOpen]]">Open Dialog</oj-button>
+            <oj-button id="okButton"  on-oj-action="[[handleOKClose]]">OK</oj-button>
+        </div>
+    </oj-dialog>
+    <oj-button id="buttonOpener"  on-oj-action="[[handleNestedOpen]]">Open Nested Dialog</oj-button>
+    <br/> <br/> <br/><!-- comment -->
+
+
+    <div role="group" aria-labelledby="groupLabel" class="oj-form-control-group">
+        <input id="text-input" aria-label="city" 
+               type="text"
+               data-bind="ojComponent: {component: 'ojInputText',  value: cityVal}"/>
+        <input id="text-input" aria-label="state" 
+               type="text"
+               data-bind="ojComponent: {component: 'ojSelect',  options: States, value: selectVal}"/>
+        <button data-bind="ojComponent: {component: 'ojButton',label:'Search'},click:getData"></button>
+    </div>
+    <div class="oj-flex-item">
+        <label id="mainlabelid">Chart Type</label>
+        <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+             data-bind="ojComponent: {
+                    component: 'ojRadioset', 
+                    value: chartType}" >
+            <span class="oj-choice-row">
+                <input id="pieopt" type="radio" name="chartTypeRadio" value="pie">
+                <label for="pieopt">Pie</label>
+            </span>
+            <span class="oj-choice-row">
+                <input id="baropt" type="radio" name="chartTypeRadio" value="bar">
+                <label for="baropt">Bar</label>
+            </span>
+        </div>
+    </div><br/><br/>
+    <div class="oj-flex-item">
+        <div id="pieChart" data-bind="ojComponent: {
+			component: 'ojChart', 
+			type: chartType, 
+			series: seriesValue, 
+                        groups: groupsValue,
+			animationOnDisplay: 'auto',
+			animationOnDataChange: 'auto',
+			hoverBehavior: 'dim',
+                        hideAndShowBehavior: 'withRescale',
+                        legend:{'position':'bottom'}
+		}"
+             style="max-width:500px;width:100%;height:350px;">
+        </div>
+    </div>
+</div>

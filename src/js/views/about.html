@@ -1,0 +1,129 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div id="aboutDiv" class="oj-hybrid-padding">
+    <h1>Data Visualization</h1>
+    <div class="oj-sm-margin-4x-bottom">
+        <oj-status-meter-gauge 
+            class="circular-status-meter-large"
+            min="0" max="100" 
+            value="{{value8}}"
+            label="{{label}}"
+            transient-value="{{transientValue}}"
+            labelled-by="startAngle"
+            orientation="circular" >
+        </oj-status-meter-gauge>
+    </div>
+    <h1>Data Collection Table</h1>
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+        <oj-table id='table' aria-label='Departments Table'
+                  data='[[dataprovider]]'
+                  selection-mode='{"row": "multiple", "column": "multiple"}'
+                  dnd='{"reorder": {"columns": "enabled"}}'
+                  scroll-policy='loadMoreOnScroll'
+                  scroll-policy-options='{"fetchSize": 5}'
+                  columns='[{"headerText": "Department Id",  "field": "DepartmentId", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"},
+                  {"headerText": "Department Name",  "field": "DepartmentName", "resizable": "enabled"},
+                  {"headerText": "Location Id", "field": "LocationId", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"},
+                  {"headerText": "Manager Id",  "field": "ManagerId", "resizable": "enabled"}]'
+                  style='width: 100%; height: 200px;'>
+        </oj-table>
+    </div>
+    <h1>Rest Data(https://restcountries.eu/rest/v2/all)  displaying it as Table</h1>
+    <div id="componentDemoContent2" style="width: 1px; min-width: 100%;">
+        <oj-table id='table2' aria-label='Departments Table'
+                  data='[[dataSourceProvider]]'
+                  selection-mode='{"row": "multiple", "column": "multiple"}'
+                  dnd='{"reorder": {"columns": "enabled"}}'
+                  scroll-policy='loadMoreOnScroll'
+                  scroll-policy-options='{"fetchSize": 5}'
+                  columns='
+                  [{"headerText": "Name",  "field": "name", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"},
+                  {"headerText": "Population",  "field": "population", "resizable": "enabled"},
+                  {"headerText": "Capital", "field": "capital", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"}]'
+                  style='width: 100%; height: 200px;'>
+        </oj-table>
+    </div>
+    <h1>Model and Collection API as Table</h1>
+    <div id="componentDemoContent3" style="width: 1px; min-width: 100%;">
+        <oj-table id='table3' aria-label='Departments Table'
+                  data='[[dataSourceModel]]'
+                  selection-mode='{"row": "multiple", "column": "multiple"}'
+                  dnd='{"reorder": {"columns": "enabled"}}'
+                  scroll-policy='loadMoreOnScroll'
+                  scroll-policy-options='{"fetchSize": 5}'
+                  columns='
+                  [{"headerText": "Name",  "field": "name", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"},
+                  {"headerText": "Population",  "field": "population", "resizable": "enabled"},
+                  {"headerText": "Capital", "field": "capital", "headerClassName": "oj-sm-only-hide", "className": "oj-sm-only-hide", "resizable": "enabled"}]'
+                  style='width: 100%; height: 200px;'>
+        </oj-table>
+    </div>
+    <h1>Data Collection Tree</h1>
+    <div id="treeview-container">
+        <p>Last selected menu item:
+            <span id="results" class="oj-typography-body-lg oj-typography-bold">
+                <oj-bind-text value="[[selectedMenuItem]]"></oj-bind-text>
+            </span>
+        </p>
+
+        <oj-tree-view id="treeview"
+                      data="[[data]]"
+                      selection-mode="multiple"
+                      aria-label="Tree View with JSON Data">
+            <oj-menu slot="contextMenu" 
+                     aria-label="Edit" 
+                     on-oj-action="[[menuAction]]"
+                     on-oj-before-open="[[menuBeforeOpen]]">
+                <oj-option id="action1" value="action1">Action 1</oj-option>
+                <oj-option id="action2" value="action2">Action 2</oj-option>
+                <oj-option id="action3" value="action3">Action 3</oj-option>
+            </oj-menu>
+            <template slot="itemTemplate" data-oj-as="row">
+                <span class="oj-treeview-item-icon"></span>
+                <span class="oj-treeview-item-text">
+                    <oj-bind-text value="[[row.data.title]]"></oj-bind-text>
+                </span>
+            </template>
+        </oj-tree-view>
+    </div>
+    <h1>Film Strip</h1>
+    <div class="oj-sm-margin-4x">
+        <div class="demo-arrow-controls">
+            <oj-label id="navArrowPlacementLabel">Arrow placement</oj-label>
+            <!-- You need to set the labelled-by attribute
+                 to make this accessible.
+                 role="radiogroup" is set for you by oj-radioset. -->
+            <oj-radioset id="navArrowPlacementRadioset" 
+                         labelled-by="navArrowPlacementLabel"
+                         value="{{currentNavArrowPlacement}}" >
+                <oj-option value="adjacent">Adjacent</oj-option>
+                <oj-option value="overlay">Overlay</oj-option>
+            </oj-radioset>
+        </div>
+        <div id="filmStripDiv" class="oj-panel oj-sm-margin-4x">
+            <oj-film-strip id="filmStrip" 
+                           aria-label="Set of chemicals" 
+                           arrow-placement="[[currentNavArrowPlacement]]"
+                           arrow-visibility="[[currentNavArrowVisibility]]">
+                <oj-bind-for-each data="[[chemicals]]">
+                    <template data-oj-as="chemical">
+                        <div class="oj-panel oj-bg-info-30 demo-filmstrip-item"
+                             :style.display="[[getItemInitialDisplay(chemical.index)]]">
+                            <span><oj-bind-text value="[[chemical.data.name]]"></oj-bind-text></span>
+                        </div>
+                    </template>
+                </oj-bind-for-each>
+            </oj-film-strip>
+        </div> <!-- end filmStripDiv -->
+    </div>
+
+    <h1> Incidents Module :  </h1>
+
+    <oj-module 
+        config="[[ModuleElementUtils.createConfig({name: 'incidents'})]]" 
+        style="background-color:aliceblue;height:100%;">
+    </oj-module>
+</div>

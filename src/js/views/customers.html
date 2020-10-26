@@ -1,0 +1,127 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+-->
+<div class="oj-hybrid-padding">
+    <h1>Customers Content Area</h1>
+    <div class="oj-flex">
+
+        <div class="oj-sm-flex-direction-column oj-flex-item oj-flex oj-panel oj-margin oj-panel-alt2">
+            <div class="oj-flex-item oj-panel oj-margin oj-panel-alt2"> Second Col</div>
+            <div class="oj-flex-item oj-panel oj-margin oj-panel-alt3"> Third Col</div>
+        </div>
+        <div class="oj-flex-item oj-panel oj-margin oj-panel-alt1"> Second Col</div>
+        <div class="oj-flex-item oj-panel oj-margin oj-panel-alt5"> Third Col</div>
+    </div>
+    <div class="oj-flex">
+        <div class="oj-sm-flex-direction-column oj-flex-item oj-flex oj-panel oj-margin oj-panel-alt2">
+            <div class="oj-flex-item oj-panel oj-margin oj-panel-alt2"> Second Col</div>
+            <div class="oj-flex-item oj-panel oj-margin oj-panel-alt3"> Third Col</div>
+        </div>
+        <div class="oj-flex-item oj-panel oj-margin oj-panel-alt1"> Second Col</div>
+        <div class="oj-flex-item oj-panel oj-margin oj-panel-alt5"> Third Col</div>
+    </div>
+    
+    <h1> Component Validators </h1>
+    1. Default HTML5 Date component <br/>
+    <div> <input type='date' /> </div>
+    2. oJInputDate component <br/>
+    <div> <oj-input-date-time value='{{date}}' > </oj-input-date-time> </div>
+    3. ojInputDate with default converters <br/>
+    <div> <oj-input-date-time value='{{date}}' date-picker.week-display='number'> </oj-input-date-time> </div>
+    4. ojInputDate with default converters <br/>
+    <div> </div>
+    
+    
+    
+        <oj-radioset id="radiosetBasicDemoId" 
+                     labelled-by="lid"
+                     value="{{currentEdge}}"
+                     on-value-changed="[[valueChangedHandler]]"
+                     class="oj-choice-direction-row">
+          <oj-option id="topopt" value="top">top</oj-option>
+          <oj-option id="bottomopt" value="bottom">bottom</oj-option>
+          <oj-option id="startopt" value="start">start</oj-option>
+          <oj-option id="endopt" value="end">end</oj-option>
+        </oj-radioset>
+        <div id="demo-container" class="oj-flex demo-edge-top">
+          <div class="tabbar-container">
+          <oj-tab-bar id="hnavlist" 
+                      edge="[[currentEdge]]"
+                      selection="{{selectedItem}}">
+            <ul>
+              <li id="home">
+                <a href="#" aria-controls="home-tab-panel" id="home-tab" >
+                  Home
+                </a>
+              </li>
+              <li id="blogs">
+                <a href="#"  aria-controls="blogs-tab-panel" id="blogs-tab">
+                  Blogs
+                </a>
+              </li>
+              <li id="settings">
+                <a href="#" aria-controls="settings-tab-panel" id="settings-tab" >
+                  Settings
+                </a>
+              </li>
+              <li id="about">
+                <a href="#"  aria-controls="about-tab-panel" id="about-tab">
+                  About
+                </a>
+              </li>
+              <li id="contact" >
+                <a href="#" aria-controls="contact-tab-panel" id="contact-tab" >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </oj-tab-bar>
+        </div>
+          <div class="switcher-container">
+          <oj-switcher value="[[selectedItem]]">
+            <div slot="home"
+                 id="home-tab-panel"
+                 role="tabpanel" 
+                 aria-labelledby="home-tab">
+              <div class="demo-tab-content">
+                <h2>Home page content area</h2>
+              </div>
+            </div>
+            <div slot="blogs"
+                 id="blogs-tab-panel"
+                 role="tabpanel" 
+                 aria-labelledby="blogs-tab">
+              <div class="demo-tab-content">
+                <h2>Blogs content area</h2>
+              </div>
+            </div>
+            <div slot="settings"
+                 id="settings-tab-panel"
+                 role="tabpanel" 
+                 aria-labelledby="settings-tab">
+              <div class="demo-tab-content">
+                <h2>Settings content area</h2>
+              </div>
+            </div>
+            <div slot="about"
+                 id="about-tab-panel"
+                 role="tabpanel" 
+                 aria-labelledby="about-tab">
+              <div class="demo-tab-content">
+                <h2>About content area</h2>
+              </div>
+            </div>
+            <div slot="contact"
+                 id="contact-tab-panel"
+                 role="tabpanel" 
+                 aria-labelledby="contact-tab">
+              <div class="demo-tab-content">
+                <h2>Contact page content area</h2>
+              </div>
+            </div>
+          </oj-switcher>
+        </div>
+        </div>  
+</div>

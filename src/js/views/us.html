@@ -1,0 +1,88 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<h1>Conduent Usecase</h1>
+<!--form id="myForm" method="put" action=""-->
+<div class="oj-flex">
+    <div class="oj-flex-item oj-panel oj-margin oj-panel-alt1"> 
+        <oj-label for="select1">Select Value to render no.of InputTexts </oj-label>
+        <!-- on-value-changed="[[onChangeHandler]]" -->
+        <oj-select-single id="select1"
+                          style="max-width:20em"
+                          data="[[browsersDP]]"  
+                          value="{{selectVal}}">
+        </oj-select-single>
+    </div>
+    <div class="oj-flex-item oj-panel oj-margin oj-panel-alt5"> 
+        <oj-label for="selectedval">Current selected value is</oj-label>
+        <span id="selectedval">
+            <oj-bind-text value="[[selectVal]]"></oj-bind-text>
+        </span>
+        <oj-label for="no-clear-icon">Input Texts are Rendering conditionally </oj-label>
+        <oj-input-text id="input1" value="{{iObject.value1}}" data-bind="visible: selectVal() >= 1"> </oj-input-text>
+        <oj-input-text id="input2" value="{{iObject.value2}}" data-bind="visible: selectVal() >= 2"> </oj-input-text>
+        <oj-input-text id="input3" value="{{iObject.value3}}" data-bind="visible: selectVal() >= 3"> </oj-input-text>
+        <oj-input-text id="input4" value="{{iObject.value4}}" data-bind="visible: selectVal() >= 4"> </oj-input-text>
+        <oj-input-text id="input5" value="{{iObject.value5}}" data-bind="visible: selectVal() >= 5"> </oj-input-text>
+        <oj-input-text id="input6" value="{{iObject.value6}}" data-bind="visible: selectVal() >= 6"> </oj-input-text>
+        <!--div id="form-container">
+            <h4>List of Users</h4>
+            <oj-button id="addPerson" class='oj-button-sm' on-oj-action="[[addUser]]">Add User</oj-button>
+            <ul>
+                <oj-bind-for-each data="[[dataProvider]]">
+                    <template>
+                        <li class="oj-flex oj-sm-align-items-center">
+                        <oj-bind-text value="[[$current.observableIndex]]"></oj-bind-text> : <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                        <oj-button class='oj-button-sm oj-sm-margin-1x-vertical' chroming="borderless" display='icons' on-oj-action="[[removeUser]]">
+                            <span slot="startIcon" class="oj-ux-ico-close"></span>
+                            Remove
+                        </oj-button>
+                        </li>
+                    </template>
+                </oj-bind-for-each-->
+
+
+
+        <!--oj-bind-for-each data="[[selectVal]]">
+             <template data-oj-as="category">
+               <li>
+                 <ul>
+                   <oj-bind-for-each data="[[categories.getChildDataProvider(category.data.name)]]">
+                     <template data-oj-as="item">
+                     <li>
+                       <oj-bind-text value="[[category.data.name + ' : ' + item.data.name]]"></oj-bind-text>
+                     </li>
+                     </template>
+                   </oj-bind-for-each>
+                 </ul>
+               </li>
+             </template>
+           </oj-bind-for-each-->
+    </div>
+
+</div>
+<div class="oj-flex-item oj-panel oj-margin oj-panel-alt5"> 
+    <oj-button id='Submit' on-oj-action='[[buttonClick]]'>Submit Data</oj-button>
+</div>
+<!--/form-->
+<span class="oj-label">Submitted value is: </span>
+<span data-bind="text: submittedValue"></span>
+
+<h3> Foreach Loop : </h3> 
+<div id="employees" class="oj-bg-info-30 oj-sm-padding-2x" >
+    <oj-button id="btn-show" on-oj-action="[[showEmployees]]">Show Employees</oj-button>
+    <oj-bind-if test="[[employees().length > 0]]">
+        <dl id="dl-emp">
+            <dt><b>Employees</b></dt>
+            <oj-bind-for-each data="[[employees]]">
+                <template data-oj-as="state">
+                    <dd><oj-input-text value="[[state.data.name]]"></oj-input-text></dd>
+                </template>
+            </oj-bind-for-each> 
+        </dl>
+    </oj-bind-if>
+</div>
+</div>

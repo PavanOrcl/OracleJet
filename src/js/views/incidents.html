@@ -1,0 +1,30 @@
+<!--
+ Copyright (c) 2014, 2020, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Incidents Content Area</h1>
+  <!--h1>Div Tag with OJET Chart Traditional Approach</h1>
+  <div data-bind="ojComponent: {
+      component: 'ojChart',
+      type : 'bar',
+      series : datasource
+  }">
+  </div>
+  <div data-bind="ojComponent: {
+      component: 'ojChart',
+      type : 'pie',
+      series : datasource
+  }">  
+  </div-->  
+ 
+  <h1> OJ Custom Component </h1>
+  <oj-select-single id="select1" style="max-width:20em" data="[[browsersDP]]"  value="{{selectVal}}">
+  </oj-select-single>
+  <!-- the value of select and ojchart are bound togher with selected value -->
+  <oj-chart type="[[selectVal]]" series="[[datasource]]">  
+  </oj-chart>
+  
+</div>
+ 
