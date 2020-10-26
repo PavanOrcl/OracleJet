@@ -6,6 +6,8 @@ Oracle Jet Workspace Images
 
 ![image](https://user-images.githubusercontent.com/73457097/97135867-9dbeb400-1777-11eb-80a8-134db30b1d21.png)
 
+Requirement : 
+
 ![image](https://user-images.githubusercontent.com/73457097/97135895-b7f89200-1777-11eb-8c8c-19991dc2833c.png)
 
 ![image](https://user-images.githubusercontent.com/73457097/97135963-d9f21480-1777-11eb-9986-61c474f11356.png)
