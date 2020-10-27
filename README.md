@@ -29,3 +29,9 @@ Workspace setup :
               3. Displaying Incident Module content inside About Module using (oj-module)<br/><br/>
 
 ![image](https://user-images.githubusercontent.com/73457097/97136049-0c9c0d00-1778-11eb-840d-a57ac622cee4.png)
+
+<h3>Usecase :</h3> <br/> 1. Intraction between the pages<br/>
+              2. Select Many Buttons - Component explore <br/>
+              3. Conditionally Activating and Deactivating the content.<br/> <br/>
+
+![image](https://user-images.githubusercontent.com/73457097/97265767-307d5280-184d-11eb-93c4-3e3801a5c963.png)
